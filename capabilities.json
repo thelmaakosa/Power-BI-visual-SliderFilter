@@ -1,0 +1,194 @@
+{
+    "dataRoles": [
+        {
+            "name": "Quantity",
+            "kind": "Grouping",
+            "displayName": "Quantity",
+            "displayNameKey": "Role_Quantity"
+        }
+    ],
+    "dataViewMappings": [
+        {
+            "conditions": [
+                {
+                    "Quantity": {
+                        "max": 1
+                    }
+                }
+            ],
+            "categorical": {
+                "categories": {
+                    "for": {
+                        "in": "Quantity"
+                    },
+                    "dataReductionAlgorithm": {
+                        "sample": {}
+                    }
+                }
+            }
+        }
+    ],
+    "objects": {
+        "general": {
+            "displayName": "General",
+            "displayNameKey": "formattingGeneral",
+            "properties": {
+                "filter": {
+                    "type": {
+                        "filter": true
+                    }
+                }
+            }
+        },
+        "optionssettings": {
+            "displayName": "Option Settings",
+            "properties": {
+                "Between": {
+                    "displayName": "Between",
+                    "description": "Allow slider to works as a between range.",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "GreaterThan": {
+                    "displayName": "Greater Than",
+                    "description": "Allow slider to works as a greater than range.",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "LessThan": {
+                    "displayName": "Less Than",
+                    "description": "Allow slider to works as a less than range.",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "Beyond": {
+                    "displayName": "Beyond",
+                    "description": "Allow slider to works as a beyond range.",
+                    "type": {
+                        "bool": true
+                    }
+                }
+            }
+        },
+        "dropdownsettings": {
+            "displayName": "Drop Down Settings",
+            "properties": {
+                "DropdownFontFamily": {
+                    "displayName": "Dropdown Font",
+                    "description": "Font of the Dropdown text.",
+                    "type": {
+                        "formatting": {
+                            "fontFamily": true
+                        }
+                    }
+                },
+                "DropdownFontColor": {
+                    "displayName": "Dropdown Font Color",
+                    "description": "Font Color of the Dropdown text.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "DropdownFontSize": {
+                    "displayName": "Dropdown Font Size",
+                    "description": "Font Size of Dropdown text.",
+                    "type": {
+                        "formatting": {
+                            "fontSize": true
+                        }
+                    }
+                }
+            }
+        },
+        "slidersettings": {
+            "displayName": "Slider Settings",
+            "properties": {
+                "SliderFillColor": {
+                    "displayName": "Selected Slider Color",
+                    "description": "Color of the slider when selected.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "SliderColor": {
+                    "displayName": "Unselected Slider Color",
+                    "description": "Color of the slider when not selected.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "SliderBorderColor": {
+                    "displayName": "Slider Border Color",
+                    "description": "Border color of slider.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "LabelFont": {
+                    "displayName": "Slider Label Font",
+                    "description": "Font of slider label text.",
+                    "type": {
+                        "formatting": {
+                            "fontFamily": true
+                        }
+                    }
+                },
+                "LabelFontSize": {
+                    "displayName": "Slider Label Font Size",
+                    "description": "Font size of slider value text.",
+                    "type": {
+                        "formatting": {
+                            "fontSize": true
+                        }
+                    }
+                },
+                "LabelFontColor": {
+                    "displayName": "Slider Label Font Color",
+                    "description": "Font color of slider labels.",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "TimeFormat": {
+                    "displayName": "Time Format",
+                    "description": "Is the value in time format.",
+                    "type": {
+                        "bool": true
+
+                    }
+                },
+                "LabelDecimalPlaces": {
+                    "displayName": "Label Decimal Place",
+                    "description": "Number of decimal place for slider labels.",
+                    "type": {
+                        "numeric": true
+
+                    }
+                }
+            }
+        }
+    }
+}

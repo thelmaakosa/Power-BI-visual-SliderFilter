@@ -1,0 +1,17 @@
+{
+    "version": "1.0.0",
+    "author": {"name":"Andie McPartland","email":"andie.mcpartland@triskele.health"},
+    "resources": [
+        {
+            "resourceId": "rId0",
+            "sourceType": 5,
+            "file": "resources/SliderFilter.pbiviz.json"
+        }
+    ],
+    "visual": {"name":"Triskele Slider Filter","displayName":"Triskele Slider Filter","guid":"SliderFilter","visualClassName":"Visual","version":"1.0.0","description":"Triskele slider filter for filtering quantities","supportUrl":"https://community.powerbi.com","gitHubUrl":"https://github.com/microsoft/PowerBI-visuals-circlecard"},
+    "metadata": {
+        "pbivizjson": {
+            "resourceId": "rId0"
+        }
+    }  
+}
