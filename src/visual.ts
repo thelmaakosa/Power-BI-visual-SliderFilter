@@ -130,17 +130,17 @@ export class Visual implements powerbi.extensibility.visual.IVisual {
 
     // Slider Properties
     private SliderWidth: number
-    private SliderHeight: number = 8;
+    private SliderHeight: number = 20;
 
     private LeftSliderMargin: number = 0;
     private RightSliderMargin: number = 0;
 
     private SliderX: number;
     private SliderY: number;
-    private SliderRx: number = 5;
-    private SliderRy: number = 5;
+    private SliderRx: number = 10;
+    private SliderRy: number = 10;
 
-    private KnobR: number = 9;
+    private KnobR: number = 15;
     private KnobMinCx: number;
     private KnobMinCy: number;
 
@@ -312,10 +312,10 @@ export class Visual implements powerbi.extensibility.visual.IVisual {
         this.SliderX = this.LeftMargin + this.LeftSliderMargin + this.SliderBorderWeight;
 
         this.KnobMinCx = this.SliderX + this.KnobR;
-        this.KnobMinCy = this.SliderY + this.KnobR / 2;
+        this.KnobMinCy = this.SliderY + this.SliderHeight / 2;
 
         this.KnobMaxCx = this.SliderX + this.SliderWidth - this.KnobR;
-        this.KnobMaxCy = this.SliderY + this.KnobR / 2;
+        this.KnobMaxCy = this.SliderY + this.SliderHeight / 2;
 
         this.TrackMinX = this.SliderX;
         this.TrackMinWidth = this.SliderWidth;
@@ -1320,9 +1320,13 @@ export class Visual implements powerbi.extensibility.visual.IVisual {
     public ValueLabels() {
 
         if (this.VisualSettings.slidersettings.TimeFormat === true) {
+            console.log("Min value:", this.KnobMinValue);
+            console.log("Max value:", this.KnobMaxValue);
 
-            let MinHour = Math.floor(this.KnobMinValue);
-            let MinMinute = Math.round((this.KnobMinValue - MinHour) * 60);
+            let MinSecond = (this.KnobMinValue / 1000) % (3600 * 24)
+
+            let MinHour = Math.floor(MinSecond / 3600) ;
+            let MinMinute = Math.floor(MinSecond/60) - MinHour * 60;
             let MinTimeofDay: string;
 
             if (MinMinute === 60) {
@@ -1331,8 +1335,21 @@ export class Visual implements powerbi.extensibility.visual.IVisual {
                 MinMinute = 0;
 
             }
+            
+            if (MinHour < -12) {
 
-            if (MinHour === 0) {
+                MinHour += 24;
+                MinTimeofDay = " PM"
+
+            }
+            else if (MinHour < 0){
+
+                MinHour += 12;
+                MinTimeofDay = " AM"
+
+            }
+
+            else if (MinHour === 0) {
 
                 MinHour = 12;
                 MinTimeofDay = " AM"
@@ -1372,8 +1389,10 @@ export class Visual implements powerbi.extensibility.visual.IVisual {
             }
 
 
-            let MaxHour = Math.floor(this.KnobMaxValue);
-            let MaxMinute = Math.round((this.KnobMaxValue - MaxHour) * 60);
+            let MaxSecond = (this.KnobMaxValue / 1000) % (3600 * 24)
+
+            let MaxHour = Math.floor(MaxSecond / 3600);
+            let MaxMinute = Math.floor(MaxSecond/60) - MaxHour * 60;
             let MaxTimeofDay: string;
 
             if (MaxMinute === 60) {
@@ -1383,7 +1402,20 @@ export class Visual implements powerbi.extensibility.visual.IVisual {
 
             }
 
-            if (MaxHour === 0) {
+            if (MaxHour < -12) {
+
+                MaxHour += 24;
+                MaxTimeofDay = " PM"
+
+            }
+            else if (MaxHour < 0) {
+
+                MaxHour += 12;
+                MaxTimeofDay = " AM"
+
+            }
+
+            else if (MaxHour === 0) {
 
                 MaxHour = 12;
                 MaxTimeofDay = " AM"
@@ -1425,7 +1457,8 @@ export class Visual implements powerbi.extensibility.visual.IVisual {
 
             this.KnobMaxText = MaxHourText.concat(":").concat(MaxMinuteText).concat(MaxTimeofDay)
             this.KnobMinText = MinHourText.concat(":").concat(MinMinuteText).concat(MinTimeofDay)
-
+            // this.KnobMinText = this.KnobMinValue.toString();
+            // this.KnobMaxText = this.KnobMaxValue.toString();
 
         }
 
@@ -1502,12 +1535,3 @@ export class Visual implements powerbi.extensibility.visual.IVisual {
 
 
 }
-
-
-
-
-
-
-
-
-

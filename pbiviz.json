@@ -6,7 +6,7 @@
     "description":"Triskele slider filter for filtering quantities",
     "supportUrl":"https://community.powerbi.com",
     "gitHubUrl":"https://github.com/microsoft/PowerBI-visuals-circlecard"},
-    "apiVersion":"2.6.0",
+    "apiVersion":"3.8.4",
     "author":{"name":"Andie McPartland","email":"andie.mcpartland@triskele.health"},
     "assets":{"icon":"assets/icon.png"},
     "externalJS":null,

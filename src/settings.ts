@@ -42,9 +42,9 @@ export class DropdownSettings {
 }
 
 export class SliderSettings {
-  public SliderFillColor: string = '#add9c8';
-  public SliderColor: string = 'none';
-  public SliderBorderColor: string = '#3f464b';
+  public SliderFillColor: string = '#00458f';
+  public SliderColor: string = '#d9dadb';
+  public SliderBorderColor: string = 'none';
   public LabelFont: string = 'Segoe UI';
   public LabelFontSize: number = 9;
   public LabelFontColor: string = '#3f464b';
