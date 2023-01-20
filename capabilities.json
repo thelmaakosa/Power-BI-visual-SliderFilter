@@ -1,194 +1,172 @@
 {
-    "dataRoles": [
-        {
-            "name": "Quantity",
-            "kind": "Grouping",
-            "displayName": "Quantity",
-            "displayNameKey": "Role_Quantity"
-        }
-    ],
-    "dataViewMappings": [
-        {
-            "conditions": [
-                {
-                    "Quantity": {
-                        "max": 1
-                    }
-                }
-            ],
-            "categorical": {
-                "categories": {
-                    "for": {
-                        "in": "Quantity"
-                    },
-                    "dataReductionAlgorithm": {
-                        "sample": {}
-                    }
-                }
-            }
-        }
-    ],
-    "objects": {
-        "general": {
-            "displayName": "General",
-            "displayNameKey": "formattingGeneral",
-            "properties": {
-                "filter": {
-                    "type": {
-                        "filter": true
-                    }
-                }
-            }
-        },
-        "optionssettings": {
-            "displayName": "Option Settings",
-            "properties": {
-                "Between": {
-                    "displayName": "Between",
-                    "description": "Allow slider to works as a between range.",
-                    "type": {
-                        "bool": true
-                    }
-                },
-                "GreaterThan": {
-                    "displayName": "Greater Than",
-                    "description": "Allow slider to works as a greater than range.",
-                    "type": {
-                        "bool": true
-                    }
-                },
-                "LessThan": {
-                    "displayName": "Less Than",
-                    "description": "Allow slider to works as a less than range.",
-                    "type": {
-                        "bool": true
-                    }
-                },
-                "Beyond": {
-                    "displayName": "Beyond",
-                    "description": "Allow slider to works as a beyond range.",
-                    "type": {
-                        "bool": true
-                    }
-                }
-            }
-        },
-        "dropdownsettings": {
-            "displayName": "Drop Down Settings",
-            "properties": {
-                "DropdownFontFamily": {
-                    "displayName": "Dropdown Font",
-                    "description": "Font of the Dropdown text.",
-                    "type": {
-                        "formatting": {
-                            "fontFamily": true
-                        }
-                    }
-                },
-                "DropdownFontColor": {
-                    "displayName": "Dropdown Font Color",
-                    "description": "Font Color of the Dropdown text.",
-                    "type": {
-                        "fill": {
-                            "solid": {
-                                "color": true
-                            }
-                        }
-                    }
-                },
-                "DropdownFontSize": {
-                    "displayName": "Dropdown Font Size",
-                    "description": "Font Size of Dropdown text.",
-                    "type": {
-                        "formatting": {
-                            "fontSize": true
-                        }
-                    }
-                }
-            }
-        },
-        "slidersettings": {
-            "displayName": "Slider Settings",
-            "properties": {
-                "SliderFillColor": {
-                    "displayName": "Selected Slider Color",
-                    "description": "Color of the slider when selected.",
-                    "type": {
-                        "fill": {
-                            "solid": {
-                                "color": true
-                            }
-                        }
-                    }
-                },
-                "SliderColor": {
-                    "displayName": "Unselected Slider Color",
-                    "description": "Color of the slider when not selected.",
-                    "type": {
-                        "fill": {
-                            "solid": {
-                                "color": true
-                            }
-                        }
-                    }
-                },
-                "SliderBorderColor": {
-                    "displayName": "Slider Border Color",
-                    "description": "Border color of slider.",
-                    "type": {
-                        "fill": {
-                            "solid": {
-                                "color": true
-                            }
-                        }
-                    }
-                },
-                "LabelFont": {
-                    "displayName": "Slider Label Font",
-                    "description": "Font of slider label text.",
-                    "type": {
-                        "formatting": {
-                            "fontFamily": true
-                        }
-                    }
-                },
-                "LabelFontSize": {
-                    "displayName": "Slider Label Font Size",
-                    "description": "Font size of slider value text.",
-                    "type": {
-                        "formatting": {
-                            "fontSize": true
-                        }
-                    }
-                },
-                "LabelFontColor": {
-                    "displayName": "Slider Label Font Color",
-                    "description": "Font color of slider labels.",
-                    "type": {
-                        "fill": {
-                            "solid": {
-                                "color": true
-                            }
-                        }
-                    }
-                },
-                "TimeFormat": {
-                    "displayName": "Time Format",
-                    "description": "Is the value in time format.",
-                    "type": {
-                        "bool": true
-
-                    }
-                },
-                "LabelDecimalPlaces": {
-                    "displayName": "Label Decimal Place",
-                    "description": "Number of decimal place for slider labels.",
-                    "type": {
-                        "numeric": true
-
-                    }
-                }
-            }
-        }
+  "dataRoles": [
+    {
+      "displayName": "Category",
+      "name": "category",
+      "kind": "Grouping"
+    },
+    {
+      "displayName": "Value",
+      "name": "value",
+      "kind": "Grouping"
+    },
+    {
+      "displayName": "Unit",
+      "name": "unit",
+      "kind": "Grouping"
     }
+  ],
+  "privileges": [],
+  "objects": {
+    "general": {
+      "displayName": "General",
+      "displayNameKey": "formattingGeneral",
+      "properties": {
+        "filter": {
+          "type": {
+            "filter": true
+          }
+        }
+      }
+    },
+    "dataLabel": {
+      "properties": {
+        "onOff": { "type": { "bool": true } },
+        "fillColor": { "type": { "fill": { "solid": { "color": true } } } },
+        "outlineColor": { "type": { "fill": { "solid": { "color": true } } } },
+        "outlineThickness": { "type": { "numeric": true } },
+        "outlineLeft": { "type": { "bool": true } },
+        "outlineRight": { "type": { "bool": true } },
+        "outlineTop": { "type": { "bool": true } },
+        "outlineBottom": { "type": { "bool": true } },
+        "outlineRadiusTopLeft": { "type": { "numeric": true } },
+        "outlineRadiusTopRight": { "type": { "numeric": true } },
+        "outlineRadiusBottomLeft": { "type": { "numeric": true } },
+        "outlineRadiusBottomRight": { "type": { "numeric": true } },
+        "fontFamily": { "type": { "numeric": true } },
+        "fontSize": { "type": { "numeric": true } },
+        "fontColor": { "type": { "fill": { "solid": { "color": true } } } },
+        "fontBold": { "type": { "bool": true } },
+        "fontItalic": { "type": { "bool": true } },
+        "fontUnderline": { "type": { "bool": true } },
+        "textInput": { "type": { "bool": true } },
+        "focusOutlineColor": {
+          "type": { "fill": { "solid": { "color": true } } }
+        }
+      }
+    },
+    "dropdown": {
+      "properties": {
+        "onOff": { "type": { "bool": true } },
+        "fillColor": { "type": { "fill": { "solid": { "color": true } } } },
+        "outlineColor": { "type": { "fill": { "solid": { "color": true } } } },
+        "outlineThickness": { "type": { "numeric": true } },
+        "outlineLeft": { "type": { "bool": true } },
+        "outlineRight": { "type": { "bool": true } },
+        "outlineTop": { "type": { "bool": true } },
+        "outlineBottom": { "type": { "bool": true } },
+        "outlineRadiusTopLeft": { "type": { "numeric": true } },
+        "outlineRadiusTopRight": { "type": { "numeric": true } },
+        "outlineRadiusBottomLeft": { "type": { "numeric": true } },
+        "outlineRadiusBottomRight": { "type": { "numeric": true } },
+        "focusOutlineColor": {
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "fontFamily": { "type": { "numeric": true } },
+        "fontSize": { "type": { "numeric": true } },
+        "fontColor": { "type": { "fill": { "solid": { "color": true } } } },
+        "fontBold": { "type": { "bool": true } },
+        "fontItalic": { "type": { "bool": true } },
+        "fontUnderline": { "type": { "bool": true } },
+        "chevronColor": { "type": { "fill": { "solid": { "color": true } } } }
+      }
+    },
+    "sliderOptions": {
+      "properties": {
+        "between": { "type": { "bool": true } },
+        "greaterThan": { "type": { "bool": true } },
+        "lessThan": { "type": { "bool": true } },
+        "beyond": { "type": { "bool": true } }
+      }
+    },
+    "slider": {
+      "properties": {
+        "trackHeight": { "type": { "numeric": true } },
+        "trackRadius": { "type": { "numeric": true } },
+        "trackUnselectedFillColor": {
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "trackUnselectedFillOpacity": { "type": { "numeric": true } },
+        "trackUnselectedOutlineColor": {
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "trackSelectedFillColor": {
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "trackSelectedFillOpacity": { "type": { "numeric": true } },
+        "trackSelectedOutlineColor": {
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "trackOutlineThickness": { "type": { "numeric": true } },
+        "knobActiveFillColor": {
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "knobActiveFillOpacity": { "type": { "numeric": true } },
+        "knobActiveOutlineColor": {
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "knobInactiveFillColor": {
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "knobInactiveFillOpacity": { "type": { "numeric": true } },
+        "knobInactiveOutlineColor": {
+          "type": { "fill": { "solid": { "color": true } } }
+        }
+      }
+    },
+    "valueTypeUnit": {
+      "properties": {
+        "valueType": { "type": { "enumeration": [] } },
+        "quantityDecimal": { "type": { "numeric": true } },
+        "quantityUnit": { "type": { "bool": true } },
+        "combinationType": { "type": { "enumeration": [] } },
+        "timeFormat": { "type": { "enumeration": [] } }
+      }
+    }
+  },
+  "dataViewMappings": [
+    {
+      "conditions": [
+        {
+          "category": { "max": 1 },
+          "value": { "max": 1 },
+          "unit": { "max": 1 }
+        }
+      ],
+      "categorical": {
+        "categories": {
+          "select": [
+            {
+              "for": {
+                "in": "category"
+              }
+            },
+            {
+              "for": {
+                "in": "value"
+              }
+            },
+            {
+              "for": {
+                "in": "unit"
+              }
+            }
+          ],
+          "dataReductionAlgorithm": {
+            "top": { "count": 30000 }
+          }
+        }
+      }
+    }
+  ]
 }

@@ -1,9 +1,43 @@
 p {
-  font-size: 12px;
+  font-size: 20px;
   font-weight: bold;
 }
 p em {
   background: yellow;
   padding: 5px;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+.ant-slider .ant-slider-handle:hover::after,
+.ant-slider .ant-slider-handle:active::after,
+.ant-slider .ant-slider-handle:focus::after {
+  box-shadow: none;
+}
+.ant-slider .ant-slider-handle:focus {
+  box-shadow: none ;
+}
+.ant-slider {
+  display: flex;
+  align-items: center;
+}
+.ant-tooltip-content {
+  display: none;
+}
+.slider-filter-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.slider-container .ant-slider-track {
+  background-color: #f5f5f5 !important;
+}
+.slider-container .ant-slider-rail {
+  background-color: #91d5ff !important;
 }
 

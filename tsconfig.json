@@ -1,15 +1,18 @@
 {
     "compilerOptions": {
+        "jsx": "react",
         "allowJs": false,
+        "types": ["react", "react-dom"],
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "strictNullChecks":false,
         "target": "es6",
         "sourceMap": true,
         "outDir": "./.tmp/build/",
         "moduleResolution": "node",
         "declaration": true,
         "lib": [
-            "es2015",
+            "es2022",
             "dom"
         ]
     },

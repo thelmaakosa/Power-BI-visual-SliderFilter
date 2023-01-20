@@ -5,11 +5,11 @@ import VisualConstructorOptions = powerbiVisualsApi.extensibility.visual.VisualC
 import DialogConstructorOptions = powerbiVisualsApi.extensibility.visual.DialogConstructorOptions;
 var powerbiKey: any = "powerbi";
 var powerbi: any = window[powerbiKey];
-var SliderFilter: IVisualPlugin = {
-    name: 'SliderFilter',
-    displayName: 'Triskele Slider Filter',
+var TriskeleSliderFilter935F6AEA513F42668552902CA227A40E: IVisualPlugin = {
+    name: 'TriskeleSliderFilter935F6AEA513F42668552902CA227A40E',
+    displayName: 'Triskele SliderFilter',
     class: 'Visual',
-    apiVersion: '3.8.0',
+    apiVersion: '5.2.0',
     create: (options: VisualConstructorOptions) => {
         if (Visual) {
             return new Visual(options);
@@ -27,6 +27,6 @@ var SliderFilter: IVisualPlugin = {
 if (typeof powerbi !== "undefined") {
     powerbi.visuals = powerbi.visuals || {};
     powerbi.visuals.plugins = powerbi.visuals.plugins || {};
-    powerbi.visuals.plugins["SliderFilter"] = SliderFilter;
+    powerbi.visuals.plugins["TriskeleSliderFilter935F6AEA513F42668552902CA227A40E"] = TriskeleSliderFilter935F6AEA513F42668552902CA227A40E;
 }
-export default SliderFilter;
+export default TriskeleSliderFilter935F6AEA513F42668552902CA227A40E;

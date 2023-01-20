@@ -5,10 +5,10 @@
         {
             "resourceId": "rId0",
             "sourceType": 5,
-            "file": "resources/SliderFilter.pbiviz.json"
+            "file": "resources/TriskeleSliderFilter935F6AEA513F42668552902CA227A40E.pbiviz.json"
         }
     ],
-    "visual": {"name":"Triskele Slider Filter","displayName":"Triskele Slider Filter","guid":"SliderFilter","visualClassName":"Visual","version":"1.0.0","description":"Triskele slider filter for filtering quantities","supportUrl":"https://community.powerbi.com","gitHubUrl":"https://github.com/microsoft/PowerBI-visuals-circlecard"},
+    "visual": {"name":"Triskele SliderFilter","displayName":"Triskele SliderFilter","guid":"TriskeleSliderFilter935F6AEA513F42668552902CA227A40E","visualClassName":"Visual","version":"1.0.0","description":"Triskele SliderFilter","supportUrl":"https://community.powerbi.com","gitHubUrl":"https://github.com/TriskeleTechnology"},
     "metadata": {
         "pbivizjson": {
             "resourceId": "rId0"
