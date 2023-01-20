@@ -8,9 +8,11 @@
 ## Introduction 
 Custom PowerBI Visual to filter quantitative data using a continuous slider. 
 
+https://github.com/thelmaakosa/Power-BI-visual-SliderFilter/blob/main/SliderFilter.pdf
+
 ## Contributer(s)
-- **Developer:** [Andie McPartland](mailto:andie.mcpartland@triskele.health)
-- **Tester:** [Ryan Fleming](mailto:ryan.fleming@triskele.health)
+- **Developer:** [Thelma Akosa](mailto:thelmaakosa107@gmail.com)
+- **Tester:** [Ryan Fleming](mailto:thelmaakosa107@gmail.com)
 
 ## Documentation and Resources
 - PowerBI Documentation: https://docs.microsoft.com/en-us/power-bi/developer/visuals/
@@ -33,6 +35,7 @@ Custom PowerBI Visual to filter quantitative data using a continuous slider.
 - Launch terminal 
 - Navigate to repository folder location using `cd folder path` command 
 - `pbiviz start` command into terminal
+- Log into https://app.powerbi.com and enable dev environment.
 
 ## Build
 
