@@ -1,12 +1,12 @@
 {
   "dataRoles": [
     {
-      "displayName": "Category",
+      "displayName": "Group By",
       "name": "category",
       "kind": "Grouping"
     },
     {
-      "displayName": "Value",
+      "displayName": "Value(s)",
       "name": "value",
       "kind": "Grouping"
     },
@@ -33,6 +33,7 @@
       "properties": {
         "onOff": { "type": { "bool": true } },
         "fillColor": { "type": { "fill": { "solid": { "color": true } } } },
+        "fillOpacity": { "type": { "numeric": true } },
         "outlineColor": { "type": { "fill": { "solid": { "color": true } } } },
         "outlineThickness": { "type": { "numeric": true } },
         "outlineLeft": { "type": { "bool": true } },
@@ -43,7 +44,7 @@
         "outlineRadiusTopRight": { "type": { "numeric": true } },
         "outlineRadiusBottomLeft": { "type": { "numeric": true } },
         "outlineRadiusBottomRight": { "type": { "numeric": true } },
-        "fontFamily": { "type": { "numeric": true } },
+        "fontFamily": { "type": { "formatting": {"fontFamily":true} } },
         "fontSize": { "type": { "numeric": true } },
         "fontColor": { "type": { "fill": { "solid": { "color": true } } } },
         "fontBold": { "type": { "bool": true } },
@@ -72,12 +73,13 @@
         "focusOutlineColor": {
           "type": { "fill": { "solid": { "color": true } } }
         },
-        "fontFamily": { "type": { "numeric": true } },
+        "fontFamily": { "type": { "formatting": {"fontFamily":true} } },
         "fontSize": { "type": { "numeric": true } },
         "fontColor": { "type": { "fill": { "solid": { "color": true } } } },
         "fontBold": { "type": { "bool": true } },
         "fontItalic": { "type": { "bool": true } },
         "fontUnderline": { "type": { "bool": true } },
+        "chevronIconSize":{"type":{"numeric":true}},
         "chevronColor": { "type": { "fill": { "solid": { "color": true } } } }
       }
     },
@@ -108,6 +110,7 @@
           "type": { "fill": { "solid": { "color": true } } }
         },
         "trackOutlineThickness": { "type": { "numeric": true } },
+        "knobSize": { "type": { "numeric": true } },
         "knobActiveFillColor": {
           "type": { "fill": { "solid": { "color": true } } }
         },
@@ -121,7 +124,8 @@
         "knobInactiveFillOpacity": { "type": { "numeric": true } },
         "knobInactiveOutlineColor": {
           "type": { "fill": { "solid": { "color": true } } }
-        }
+        },
+        "knobOutilineThickness": { "type": { "numeric": true } }
       }
     },
     "valueTypeUnit": {
@@ -129,7 +133,10 @@
         "valueType": { "type": { "enumeration": [] } },
         "quantityDecimal": { "type": { "numeric": true } },
         "quantityUnit": { "type": { "bool": true } },
-        "combinationType": { "type": { "enumeration": [] } },
+        "combinationTimeInputValueUnit": { "type": { "enumeration": [] } },
+        "combinationTimeType": { "type": { "enumeration": [] } },
+        "combinationLengthInputValueUnit": { "type": { "enumeration": [] } },
+        "combinationLengthType": { "type": { "enumeration": [] } },
         "timeFormat": { "type": { "enumeration": [] } }
       }
     }

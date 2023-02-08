@@ -1,16 +1,6 @@
 import * as React from "react";
-import { ChartSettingsModel } from "./settings";
-export interface State {
-    defaultValue: [any, any];
-    valueType: "Quantity" | "Time" | "Combination";
-    max?: any;
-    min?: any;
-    Unit?: string;
-    combinationType?: "hourMinutes" | "mins&secs" | "hours&mins&secs";
-    settings: ChartSettingsModel;
-    width: number;
-    height: number;
-    applyFilter?: any;
+import { IProps } from "./components/SliderFilter";
+export interface State extends IProps {
 }
 export declare const initialState: State;
 export declare class ReactVisual extends React.Component<{}, State> {

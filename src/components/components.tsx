@@ -22,7 +22,8 @@ export const Handle: React.FC<IHandleProps> = ({
   handle: { id, value, percent },
   getHandleProps,
   knobSize,
-}) => (
+}) => {
+  return (
   <div
     role="slider"
     aria-valuemin={min}
@@ -48,7 +49,7 @@ export const Handle: React.FC<IHandleProps> = ({
     }}
     {...getHandleProps(id)}
   />
-);
+)};
 
 // *******************************************************
 // TRACK COMPONENT
@@ -95,6 +96,7 @@ export const Track: React.FC<ITrackProps> = ({
 }) => {
     const hexColor = d3.color(fillColor) as d3.RGBColor;
     const backgroundColor = `rgba(${hexColor.r}, ${hexColor.g}, ${hexColor.b}, ${fillOpacity / 100})`
+    console.log(trackOutline,"trackoutline")
     return (
         <div
             style={{

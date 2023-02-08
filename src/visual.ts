@@ -77,7 +77,6 @@ export class Visual implements IVisual {
       );
     const visualHost = this.host;
     if (
-      dataRoleHelper.hasRoleInDataView(options.dataViews[0], "category") &&
       dataRoleHelper.hasRoleInDataView(options.dataViews[0], "value") &&
       dataRoleHelper.hasRoleInDataView(options.dataViews[0], "unit")
     ) {
@@ -119,15 +118,19 @@ export class Visual implements IVisual {
           console.log([minDateValue, maxDateValue])
         }
       }
+
+      const valueType = this.formattingSettings.valueTypeUnitSettings.valueType.value.value as any;
+      const combinationType = valueType=='CombinationTime'?this.formattingSettings.valueTypeUnitSettings.combinationTimeType.value.value:valueType=='CombinationLength'?this.formattingSettings.valueTypeUnitSettings.combinationLengthType.value.value:null as any
+      const combinationUnit = valueType=='CombinationTime'?this.formattingSettings.valueTypeUnitSettings.combinationTimeInputValueUnit.value.value:valueType=='CombinationLength'?this.formattingSettings.valueTypeUnitSettings.combinationLengthInputValueUnit.value.value:null as any
       if (value.source.type.numeric) {
         ReactVisual.update({
           defaultValue: [minDataValue, maxDataValue],
           max: maximumDataValue,
           min: minimumDataValue,
-          valueType:
-            this.formattingSettings.valueTypeUnitSettings.valueType.value.value as any,
-          Unit: unit as string,
-          combinationType: this.formattingSettings.valueTypeUnitSettings.combinationType.value.value as any,
+          valueType:valueType,
+          unit: unit as string,
+          combinationType: combinationType,
+          combinationUnit:combinationUnit,
           settings: this.formattingSettings,
           width: options.viewport.width,
           height: options.viewport.height,
@@ -138,10 +141,10 @@ export class Visual implements IVisual {
           defaultValue: [minDateValue, maxDateValue],
           max: maximumDateValue,
           min: minimumDateValue,
-          valueType:
-            this.formattingSettings.valueTypeUnitSettings.valueType.value.value as any,
-          Unit: unit as string,
-          combinationType: this.formattingSettings.valueTypeUnitSettings.combinationType.value.value as any,
+          valueType:valueType,
+          unit: unit as string,
+          combinationType: combinationType,
+          combinationUnit: combinationUnit,
           settings: this.formattingSettings,
           width: options.viewport.width,
           height: options.viewport.height,
@@ -154,8 +157,9 @@ export class Visual implements IVisual {
         max: null,
         min: null,
         valueType:null,
-        Unit: null,
+        unit: null,
         combinationType: null,
+        combinationUnit: null,
         settings: null,
         width: null,
         height: null,
@@ -179,9 +183,14 @@ export class Visual implements IVisual {
               d.name == "quantityUnit"
           )
         : this.formattingSettings.valueTypeUnitSettings.valueType.value.value ==
-          "Combination"
+          "CombinationTime"
         ? this.formattingSettings.valueTypeUnitSettings.slices.filter(
-            (d) => d.name == "valueType" || d.name == "combinationType"
+            (d) => d.name == "valueType" || d.name == "combinationTimeType"|| d.name == "combinationTimeInputValueUnit"
+          )
+        : this.formattingSettings.valueTypeUnitSettings.valueType.value.value ==
+          "CombinationLength"
+        ? this.formattingSettings.valueTypeUnitSettings.slices.filter(
+            (d) => d.name == "valueType" || d.name == "combinationLengthType"|| d.name == "combinationLengthInputValueUnit"
           )
         : this.formattingSettings.valueTypeUnitSettings.valueType.value.value ==
           "Time"

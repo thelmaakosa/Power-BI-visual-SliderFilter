@@ -49,7 +49,7 @@ export class SliderOptionsSettings extends FormattingSettingsCard {
 export class DropdownSettings extends FormattingSettingsCard {
   onOff = new formattingSettings.ToggleSwitch({
     name: "onOff",
-    displayName: "On/Off",
+    displayName: "Dropdown",
     topLevelToggle: true,
     value: true,
   });
@@ -57,7 +57,7 @@ export class DropdownSettings extends FormattingSettingsCard {
   fillColor = new formattingSettings.ColorPicker({
     name: "fillColor",
     displayName: "Fill Color",
-    value: { value: "#FFFFFF" },
+    value: { value: "#fafafa" },
   });
 
   outlineColor = new formattingSettings.ColorPicker({
@@ -70,6 +70,12 @@ export class DropdownSettings extends FormattingSettingsCard {
     name: "outlineThickness",
     displayName: "Outline Thickness",
     value: 2,
+    options:{
+      "minValue":{
+        "type":ValidatorType.Min,
+        "value":0
+      },
+    }
   });
 
   outlineLeft = new formattingSettings.ToggleSwitch({
@@ -98,26 +104,50 @@ export class DropdownSettings extends FormattingSettingsCard {
 
   outlineRadiusTopLeft = new formattingSettings.NumUpDown({
     name: "outlineRadiusTopLeft",
-    displayName: "Outline Radius Top Left",
+    displayName: "Radius Top-Left",
     value: 0,
+    options:{
+      "minValue":{
+        "type":ValidatorType.Min,
+        "value":0
+      },
+    }
   });
 
   outlineRadiusTopRight = new formattingSettings.NumUpDown({
     name: "outlineRadiusTopRight",
-    displayName: "Outline Radius Top Right",
+    displayName: "Radius Top-Right",
     value: 0,
+    options:{
+      "minValue":{
+        "type":ValidatorType.Min,
+        "value":0
+      },
+    }
   });
 
   outlineRadiusBottomLeft = new formattingSettings.NumUpDown({
     name: "outlineRadiusBottomLeft",
-    displayName: "Outline Radius Bottom Left",
+    displayName: "Radius Bottom-Left",
     value: 0,
+    options:{
+      "minValue":{
+        "type":ValidatorType.Min,
+        "value":0
+      },
+    }
   });
 
   outlineRadiusBottomRight = new formattingSettings.NumUpDown({
     name: "outlineRadiusBottomRight",
-    displayName: "Outline Radius Bottom Right",
+    displayName: "Radius Bottom-Right",
     value: 0,
+    options:{
+      "minValue":{
+        "type":ValidatorType.Min,
+        "value":0
+      },
+    }
   });
 
   focusOutlineColor = new formattingSettings.ColorPicker({
@@ -129,13 +159,19 @@ export class DropdownSettings extends FormattingSettingsCard {
   fontFamily = new formattingSettings.FontPicker({
     name: "fontFamily",
     displayName: "Font Family",
-    value: "Segoe UI Bold",
+    value: "Segoe UI",
   });
 
   fontSize = new formattingSettings.NumUpDown({
     name: "fontSize",
     displayName: "Font Size",
     value: 10,
+    options:{
+      "minValue":{
+        "type":ValidatorType.Min,
+        "value":0
+      },
+    }
   });
 
   fontColor = new formattingSettings.ColorPicker({
@@ -162,9 +198,17 @@ export class DropdownSettings extends FormattingSettingsCard {
     value: false,
   });
 
+
+  chevronIconSize = new formattingSettings.NumUpDown({
+    name:"chevronIconSize",
+    displayName: "Chevron Icon Size",
+    value:10
+  })
+  
+
   chevronColor = new formattingSettings.ColorPicker({
     name: "chevronColor",
-    displayName: "Chevron color",
+    displayName: "Chevron Icon Color",
     value: { value: "#00458f" },
   });
 
@@ -173,23 +217,24 @@ export class DropdownSettings extends FormattingSettingsCard {
   slices: Array<FormattingSettingsSlice> = [
     this.onOff,
     this.fillColor,
-    this.outlineColor,
-    this.outlineThickness,
-    this.outlineLeft,
-    this.outlineRight,
-    this.outlineTop,
-    this.outlineBottom,
     this.outlineRadiusTopLeft,
     this.outlineRadiusTopRight,
     this.outlineRadiusBottomLeft,
     this.outlineRadiusBottomRight,
-    this.focusOutlineColor,
+    this.outlineLeft,
+    this.outlineRight,
+    this.outlineTop,
+    this.outlineBottom,
+    this.outlineColor,
+    this.outlineThickness,
+    // this.focusOutlineColor,
     this.fontFamily,
     this.fontSize,
     this.fontColor,
     this.fontBold,
     this.fontItalic,
     this.fontUnderline,
+    this.chevronIconSize,
     this.chevronColor
   ];
 }
@@ -198,7 +243,7 @@ export class DataLabelSettings extends FormattingSettingsCard {
 
   onOff = new formattingSettings.ToggleSwitch({
     name: "onOff",
-    displayName: "On/Off",
+    displayName: "Data Label",
     topLevelToggle: true,
     value: true,
   });
@@ -207,6 +252,23 @@ export class DataLabelSettings extends FormattingSettingsCard {
     name: "fillColor",
     displayName: "Fill Color",
     value: { value: "#fafafa" },
+  });
+
+  fillOpacity = new formattingSettings.NumUpDown({
+    name: "fillOpacity",
+    displayName: "Fill Opacity",
+    value: 100,
+    options: {
+      unitSymbol: "%",
+      minValue: {
+        type: ValidatorType.Min,
+        value: 0,
+      },
+      maxValue: {
+        type: ValidatorType.Max,
+        value: 100,
+      },
+    },
   });
 
   outlineColor = new formattingSettings.ColorPicker({
@@ -219,6 +281,12 @@ export class DataLabelSettings extends FormattingSettingsCard {
     name: "outlineThickness",
     displayName: "Outline Thickness",
     value: 2,
+    options:{
+      "minValue":{
+        "type":ValidatorType.Min,
+        "value":0
+      },
+    }
   });
 
   outlineLeft = new formattingSettings.ToggleSwitch({
@@ -247,38 +315,68 @@ export class DataLabelSettings extends FormattingSettingsCard {
 
   outlineRadiusTopLeft = new formattingSettings.NumUpDown({
     name: "outlineRadiusTopLeft",
-    displayName: "Outline Radius Top Left",
+    displayName: "Radius Top-Left",
     value: 0,
+    options:{
+      "minValue":{
+        "type":ValidatorType.Min,
+        "value":0
+      },
+    }
   });
 
   outlineRadiusTopRight = new formattingSettings.NumUpDown({
     name: "outlineRadiusTopRight",
-    displayName: "Outline Radius Top Right",
+    displayName: "Radius Top-Right",
     value: 0,
+    options:{
+      "minValue":{
+        "type":ValidatorType.Min,
+        "value":0
+      },
+    }
   });
 
   outlineRadiusBottomLeft = new formattingSettings.NumUpDown({
     name: "outlineRadiusBottomLeft",
-    displayName: "Outline Radius Bottom Left",
+    displayName: "Radius Bottom-Left",
     value: 0,
+    options:{
+      "minValue":{
+        "type":ValidatorType.Min,
+        "value":0
+      },
+    }
   });
 
   outlineRadiusBottomRight = new formattingSettings.NumUpDown({
     name: "outlineRadiusBottomRight",
-    displayName: "Outline Radius Bottom Right",
+    displayName: "Radius Bottom-Right",
     value: 0,
+    options:{
+      "minValue":{
+        "type":ValidatorType.Min,
+        "value":0
+      },
+    }
   });
 
   fontFamily = new formattingSettings.FontPicker({
     name: "fontFamily",
     displayName: "Font Family",
-    value: "Segoe UI Bold",
+    value: "Segoe UI",
   });
 
   fontSize = new formattingSettings.NumUpDown({
     name: "fontSize",
     displayName: "Font Size",
     value: 9,
+    options:{
+      "minValue":{
+        "type":ValidatorType.Min,
+        "value":0
+      },
+    }
   });
 
   fontColor = new formattingSettings.ColorPicker({
@@ -322,16 +420,17 @@ export class DataLabelSettings extends FormattingSettingsCard {
   slices: Array<FormattingSettingsSlice> = [
     this.onOff,
     this.fillColor,
-    this.outlineColor,
-    this.outlineThickness,
-    this.outlineLeft,
-    this.outlineRight,
-    this.outlineTop,
-    this.outlineBottom,
+    this.fillOpacity,
     this.outlineRadiusTopLeft,
     this.outlineRadiusTopRight,
     this.outlineRadiusBottomLeft,
     this.outlineRadiusBottomRight,
+    this.outlineLeft,
+    this.outlineRight,
+    this.outlineTop,
+    this.outlineBottom,
+    this.outlineColor,
+    this.outlineThickness,
     this.fontFamily,
     this.fontSize,
     this.fontColor,
@@ -339,7 +438,7 @@ export class DataLabelSettings extends FormattingSettingsCard {
     this.fontItalic,
     this.fontUnderline,
     this.textInput,
-    this.focusOutlineColor
+    // this.focusOutlineColor
   ];
 }
 
@@ -347,13 +446,13 @@ export class SliderSettings extends FormattingSettingsCard {
 
   trackHeight = new formattingSettings.NumUpDown({
     name:"trackHeight",
-    displayName:"Track radius",
+    displayName:"Track Height",
     value:20
   })
 
   trackRadius = new formattingSettings.NumUpDown({
     name:"trackRadius",
-    displayName:"Track radius",
+    displayName:"Track Radius",
     value:15
   })
 
@@ -365,7 +464,7 @@ export class SliderSettings extends FormattingSettingsCard {
 
   trackUnselectedFillOpacity = new formattingSettings.NumUpDown({
     name: "trackUnselectedFillOpacity",
-    displayName: "Unselected Fill Opacity",
+    displayName: "Track Unselected Fill Opacity",
     value: 100,
     options: {
       unitSymbol: "%",
@@ -383,7 +482,7 @@ export class SliderSettings extends FormattingSettingsCard {
   trackUnselectedOutlineColor = new formattingSettings.ColorPicker({
     name: "trackUnselectedOutlineColor",
     displayName: "Track Unselected Outline Color",
-    value: { value: "#ffffff" },
+    value: { value: "" },
   });
 
   trackSelectedFillColor = new formattingSettings.ColorPicker({
@@ -394,7 +493,7 @@ export class SliderSettings extends FormattingSettingsCard {
 
   trackSelectedFillOpacity = new formattingSettings.NumUpDown({
     name: "trackSelectedFillOpacity",
-    displayName: "Selected Fill Opacity",
+    displayName: "Track Selected Fill Opacity",
     value: 100,
     options: {
       unitSymbol: "%",
@@ -412,7 +511,7 @@ export class SliderSettings extends FormattingSettingsCard {
   trackSelectedOutlineColor = new formattingSettings.ColorPicker({
     name: "trackSelectedOutlineColor",
     displayName: "Track Selected Outline Color",
-    value: { value: "#ffffff" },
+    value: { value: "" },
   });
 
   trackOutlineThickness = new formattingSettings.NumUpDown({
@@ -425,6 +524,12 @@ export class SliderSettings extends FormattingSettingsCard {
     name: "knobSize",
     displayName: "Knob size",
     value: 20,
+    options: {
+      minValue: {
+        type: ValidatorType.Min,
+        value: 0,
+      },
+    },
   });
 
   knobActiveFillColor = new formattingSettings.ColorPicker({
@@ -485,6 +590,12 @@ export class SliderSettings extends FormattingSettingsCard {
     value: { value: "#8c9093" },
   });
 
+  knobOutilineThickness = new formattingSettings.NumUpDown({
+    name:"knobOutilineThickness",
+    displayName:"Knob Outline Thickness",
+    value:1
+  })
+
   name: string = "slider";
   displayName: string = "Slider";
   slices: Array<FormattingSettingsSlice> = [
@@ -492,18 +603,19 @@ export class SliderSettings extends FormattingSettingsCard {
     this.trackRadius,
     this.trackSelectedFillColor,
     this.trackSelectedFillOpacity,
-    this.trackSelectedOutlineColor,
     this.trackUnselectedFillColor,
     this.trackUnselectedFillOpacity,
+    this.trackSelectedOutlineColor,
     this.trackUnselectedOutlineColor,
     this.trackOutlineThickness,
     this.knobSize,
     this.knobActiveFillColor,
     this.knobActiveFillOpacity,
-    this.knobActiveOutlineColor,
     this.knobInactiveFillColor,
     this.knobInactiveFillOpacity,
+    this.knobActiveOutlineColor,
     this.knobInactiveOutlineColor,
+    this.knobOutilineThickness
   ];
 }
 
@@ -514,7 +626,8 @@ export class ValueTypeUnitSettings extends FormattingSettingsCard {
     displayName: "Value Type",
     items: [
       { value: "Quantity", displayName: "Quantity" },
-      { value: "Combination", displayName: "Combination" },
+      { value: "CombinationTime", displayName: "Combination(Time)" },
+      { value: "CombinationLength", displayName: "Combination(Length)" },
       { value: "Time", displayName: "Time" },
     ],
     value: { value: "Quantity", displayName: "Quantity" },
@@ -522,19 +635,37 @@ export class ValueTypeUnitSettings extends FormattingSettingsCard {
 
   quantityDecimal = new formattingSettings.NumUpDown({
     name:"quantityDecimal",
-    displayName:"Number of decimals",
-    value:0
+    displayName:"Quantity - Number of Decimals",
+    value:0,
+    options:{
+      "minValue":{
+        "type":ValidatorType.Min,
+        "value":0
+      },
+    }
   })
 
   quantityUnit = new formattingSettings.ToggleSwitch({
     name: "quantityUnit",
-    displayName: "Unit",
+    displayName: "Quantity - Unit",
     value: true,
+    
   });
 
-  combinationType = new formattingSettings.ItemDropdown({
-    name: "combinationType",
-    displayName: "Value Type",
+  combinationTimeInputValueUnit = new formattingSettings.ItemDropdown({
+    name:"combinationTimeInputValueUnit",
+    displayName:"Combination(Time) - Input Value Unit",
+    items:[
+      {value:"h", displayName:"Hours"},
+      {value:"s", displayName:"Seconds"},
+      {value:"m", displayName:"Minutes"},
+    ],
+    value:{value:"m", displayName:"Minutes"},
+  })
+
+  combinationTimeType = new formattingSettings.ItemDropdown({
+    name: "combinationTimeType",
+    displayName: "Combination(Time) - Displayed Unit",
     items: [
       { value: "hourMinutes", displayName: "hour & minutes" },
       { value: "hourMinutesSeconds", displayName: "hour & minutes & seconds" },
@@ -542,11 +673,33 @@ export class ValueTypeUnitSettings extends FormattingSettingsCard {
     value: { value: "hourMinutes", displayName: "hour & minutes" },
   });
 
+  combinationLengthInputValueUnit = new formattingSettings.ItemDropdown({
+    name:"combinationLengthInputValueUnit",
+    displayName:"Combination(Length) - Input Value Unit",
+    items:[
+      {value:"feet", displayName:"Feet"},
+      {value:"inches", displayName:"Inches"},
+    ],
+    value:{value:"feet", displayName:"Feet"},
+  })
+
+  combinationLengthType = new formattingSettings.ItemDropdown({
+    name: "combinationLengthType",
+    displayName: "Combination(Length) - Displayed Unit",
+    items: [
+      { value: "feetInches", displayName: "Feet & Inches" },
+    ],
+    value: { value: "feetInches", displayName: "Feet & Inches" },
+  });
+
   timeFormat = new formattingSettings.ItemDropdown({
     name: "timeFormat",
-    displayName: "Time Format",
+    displayName: "Time - Format",
     items: [
-      { value: "%I:%M %p", displayName: " hh:mm AM/PM" },
+      { value: "%I:%M %p", displayName: "hh:mm AM/PM" },
+      { value: "%-I:%M %p", displayName: "h:mm AM/PM" },
+      { value: "%H:%M", displayName: "hh:mm" },
+      { value: "%-H:%M", displayName: "h:mm" },
     ],
     value: { value: "%I:%M %p", displayName: " hh:mm AM/PM" },
   });
@@ -557,7 +710,10 @@ export class ValueTypeUnitSettings extends FormattingSettingsCard {
     this.valueType,
     this.quantityDecimal,
     this.quantityUnit,
-    this.combinationType,
+    this.combinationTimeInputValueUnit,
+    this.combinationTimeType,
+    this.combinationLengthInputValueUnit,
+    this.combinationLengthType,
     this.timeFormat,
   ];
 }
@@ -572,6 +728,6 @@ export class ChartSettingsModel extends FormattingSettingsModel {
   sliderSettings = new SliderSettings();
   valueTypeUnitSettings = new ValueTypeUnitSettings();
 
-  cards = [this.sliderOptionsSettings, this.dropdownSettings, this.dataLabelSettings, this.sliderSettings, this.valueTypeUnitSettings,];
+  cards = [this.dropdownSettings,this.sliderOptionsSettings,this.sliderSettings, this.dataLabelSettings,  this.valueTypeUnitSettings,];
 }
 

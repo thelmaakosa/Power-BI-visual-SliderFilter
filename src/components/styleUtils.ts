@@ -21,18 +21,36 @@ export const genFontStyle = (
           position == "Left" ? "left" : position == "Right" ? "right" : "center"
         };
         text-indent: ${stepIndentation}px;
-        color: ${fontColor};
+        color: ${fontColor==''?'transparent':fontColor};
         word-wrap: ${wordWrap ? "break-word" : "normal"};
     `;
 };
 
 export const genBackground = (fillColor = "#FFFFFF", fillOpacity = 100) => {
+  if(fillColor==''){
+    return `background-color:transparent;`
+  }
+
   const hexColor = d3.color(fillColor) as d3.RGBColor;
 
   return `
         background-color: rgba(${hexColor.r}, ${hexColor.g}, ${hexColor.b}, ${
     fillOpacity / 100
   });
+    `;
+};
+
+export const genBackgroundColor = (fillColor = "#FFFFFF", fillOpacity = 100) => {
+  if(fillColor==''){
+    return `transparent`
+  }
+
+  const hexColor = d3.color(fillColor) as d3.RGBColor;
+
+  return `
+        rgba(${hexColor.r}, ${hexColor.g}, ${hexColor.b}, ${
+    fillOpacity / 100
+  })
     `;
 };
 
@@ -55,7 +73,7 @@ export const genBorder = (
     outlineLeft ? outlineThickness : 0
   }px;
         border-radius: ${outlineRadiusTopLeft}px ${outlineRadiusTopRight}px ${outlineRadiusBottomRight}px ${outlineRadiusBottomLeft}px;
-        border-color: ${outlineColor};
+        border-color: ${outlineColor==''?'transparent':outlineColor};
         border-style: ${outlineTop ? "solid" : "none"} ${
     outlineRight ? "solid" : "none"
   } ${outlineBottom ? "solid" : "none"} ${outlineLeft ? "solid" : "none"};
@@ -66,6 +84,9 @@ export const genBandedBackgroud = (
   bandedFillColor = "#FFFFFF",
   bandedFillOpacity = 100
 ) => {
+  if(bandedFillColor==''){
+    return `background-color:transparent;`
+  }
   const hexColor = d3.color(bandedFillColor) as d3.RGBColor;
 
   return `

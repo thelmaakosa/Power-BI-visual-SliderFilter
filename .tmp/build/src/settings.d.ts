@@ -31,6 +31,7 @@ export declare class DropdownSettings extends FormattingSettingsCard {
     fontBold: formattingSettings.ToggleSwitch;
     fontItalic: formattingSettings.ToggleSwitch;
     fontUnderline: formattingSettings.ToggleSwitch;
+    chevronIconSize: formattingSettings.NumUpDown;
     chevronColor: formattingSettings.ColorPicker;
     name: string;
     displayName: string;
@@ -39,6 +40,7 @@ export declare class DropdownSettings extends FormattingSettingsCard {
 export declare class DataLabelSettings extends FormattingSettingsCard {
     onOff: formattingSettings.ToggleSwitch;
     fillColor: formattingSettings.ColorPicker;
+    fillOpacity: formattingSettings.NumUpDown;
     outlineColor: formattingSettings.ColorPicker;
     outlineThickness: formattingSettings.NumUpDown;
     outlineLeft: formattingSettings.ToggleSwitch;
@@ -78,6 +80,7 @@ export declare class SliderSettings extends FormattingSettingsCard {
     knobInactiveFillColor: formattingSettings.ColorPicker;
     knobInactiveFillOpacity: formattingSettings.NumUpDown;
     knobInactiveOutlineColor: formattingSettings.ColorPicker;
+    knobOutilineThickness: formattingSettings.NumUpDown;
     name: string;
     displayName: string;
     slices: Array<FormattingSettingsSlice>;
@@ -86,7 +89,10 @@ export declare class ValueTypeUnitSettings extends FormattingSettingsCard {
     valueType: formattingSettings.ItemDropdown;
     quantityDecimal: formattingSettings.NumUpDown;
     quantityUnit: formattingSettings.ToggleSwitch;
-    combinationType: formattingSettings.ItemDropdown;
+    combinationTimeInputValueUnit: formattingSettings.ItemDropdown;
+    combinationTimeType: formattingSettings.ItemDropdown;
+    combinationLengthInputValueUnit: formattingSettings.ItemDropdown;
+    combinationLengthType: formattingSettings.ItemDropdown;
     timeFormat: formattingSettings.ItemDropdown;
     name: string;
     displayName: string;
@@ -98,5 +104,5 @@ export declare class ChartSettingsModel extends FormattingSettingsModel {
     dataLabelSettings: DataLabelSettings;
     sliderSettings: SliderSettings;
     valueTypeUnitSettings: ValueTypeUnitSettings;
-    cards: (SliderOptionsSettings | DropdownSettings | DataLabelSettings | SliderSettings | ValueTypeUnitSettings)[];
+    cards: (DropdownSettings | SliderOptionsSettings | SliderSettings | DataLabelSettings | ValueTypeUnitSettings)[];
 }

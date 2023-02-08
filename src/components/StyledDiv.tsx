@@ -51,16 +51,17 @@ export const styledHandlerDiv = (settings:ChartSettingsModel)=>{
     return  styled.div`    
     & div {
         ${genBackground(settings.sliderSettings.knobInactiveFillColor.value.value,settings.sliderSettings.knobInactiveFillOpacity.value)}
-        outline: ${settings.sliderSettings.knobInactiveOutlineColor.value.value} solid ${1}px;
+        outline: ${settings.sliderSettings.knobInactiveOutlineColor.value.value} solid ${settings.sliderSettings.knobOutilineThickness.value}px;
         margin-top:${-(settings.sliderSettings.knobSize.value/2 - settings.sliderSettings.trackHeight.value/2)}px;
-        &:active{
+        &:hover{
             ${genBackground(settings.sliderSettings.knobActiveFillColor.value.value,settings.sliderSettings.knobActiveFillOpacity.value)}
-            outline: ${settings.sliderSettings.knobActiveOutlineColor.value.value} solid ${1}px;
+            outline: ${settings.sliderSettings.knobActiveOutlineColor.value.value} solid ${settings.sliderSettings.knobOutilineThickness.value}px;
         }
     }`
 }
 
 export const styledDropdown = (settings:ChartSettingsModel)=>{
+    console.log(settings.dropdownSettings,"settings.dropdownSettings.fontFamily.value,")
     return styled.div`
         background-color: ${settings.dropdownSettings.fillColor.value.value};
         ${genBorder(

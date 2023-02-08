@@ -1,23 +1,9 @@
 import powerbi from "powerbi-visuals-api";
 import * as React from "react";
 
-import { SliderFilter } from "./components/SliderFilter";
+import { SliderFilter, IProps } from "./components/SliderFilter";
 // import { StyledDiv } from "./components/StyledDiv"
 import { ChartSettingsModel } from "./settings";
-
-// import "antd/dist/antd.css";
-
-        // <SliderFilter
-        //             defaultValue={[sampleData1.minValue, sampleData1.maxValue]}
-        //             max={sampleData1.maximumValue}
-        //             min={sampleData1.minimumValue}
-        //             valueType="Combinatio"
-        //             Unit="hrs"
-        //             combinationType="hours&mins"
-        //             settings={this.state.settings}
-        //             width = {this.state.width}
-        //             height = {this.state.height}
-        //         />
 
 interface IDataPoint {
   settings: ChartSettingsModel;
@@ -47,17 +33,7 @@ interface IDatePoint {
 //   minimumValue: new Date(1899, 12, 31, 23, 59, 59),
 // };
 
-export interface State {
-  defaultValue: [any, any];
-  valueType: "Quantity" | "Time" | "Combination";
-  max?: any;
-  min?: any;
-  Unit?: string;
-  combinationType?: "hourMinutes" | "mins&secs" | "hours&mins&secs";
-  settings: ChartSettingsModel;
-  width:number;
-  height:number;
-  applyFilter?:any;
+export interface State extends IProps{
 }
 
 export const initialState: State = {
@@ -105,8 +81,9 @@ export class ReactVisual extends React.Component<{}, State> {
                     max={this.state.max}
                     min={this.state.min}
                     valueType={this.state.valueType}
-                    Unit={this.state.Unit}
+                    unit={this.state.unit}
                     combinationType={this.state.combinationType}
+                    combinationUnit = {this.state.combinationUnit}
                     settings={this.state.settings}
                     width = {this.state.width}
                     height = {this.state.height}

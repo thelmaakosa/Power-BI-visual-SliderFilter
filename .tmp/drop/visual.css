@@ -40,4 +40,18 @@ code {
 .slider-container .ant-slider-rail {
   background-color: #91d5ff !important;
 }
+input {
+  background: none;
+  font: inherit;
+  text-decoration: inherit;
+  color: inherit;
+}
+.input-group,
+.value-input-area {
+  min-width: 15%;
+}
+.input-group > input,
+.value-input-area > input {
+  flex-grow: 1;
+}
 
